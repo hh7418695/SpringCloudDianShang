@@ -10,5 +10,5 @@ public interface UserDao {
                  @Param(value = "uname")String uname,
                  @Param(value = "usex") String usex);
 
-    User login(@Param(value = "uname") String uname);//用户登录接口;
+    User login(@Param(value = "uname") String uname);//用户登录接口
 }
