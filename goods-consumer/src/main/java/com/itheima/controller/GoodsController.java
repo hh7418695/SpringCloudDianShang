@@ -3,6 +3,7 @@ package com.itheima.controller;
 /**
  * Created by itcast on 2019/10/31.
  */
+
 import com.itheima.b2b.commonmodule.model.Cart;
 import com.itheima.b2b.commonmodule.model.Goods;
 import com.itheima.service.GoodsService;
@@ -10,10 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
+
 @Controller
 @RequestMapping("/goods")
 public class GoodsController {
@@ -98,22 +101,23 @@ public class GoodsController {
 
     //加入购物车-将商品加入购物车并查询出全部商品如果有商品修改商品数量
     @GetMapping(value = "cart")
-    public  String cart(HttpServletRequest request,String name,String price,String che,String number,HttpSession session){
-        String uid = (String)session.getAttribute("uaccount");
-        List<Cart> usercart= goodsService.getAllcart(Integer.parseInt(uid));
+    public String cart(HttpServletRequest request, String name, String price, String che, String number, HttpSession session) {
+        String uid = (String) session.getAttribute("uaccount");
+        List<Cart> usercart = goodsService.getAllcart(Integer.parseInt(uid));
         int n = Integer.parseInt(price);
-        for (int i=0;i<usercart.size();i++){
-            if (usercart.get(i).getGoodid()==Integer.parseInt(che)){
-                goodsService.updateCart(Integer.parseInt(number),usercart.get(i).getId());
-                return  "redirect:/goods/cartAll";
+        for (int i = 0; i < usercart.size(); i++) {
+            if (usercart.get(i).getGoodid() == Integer.parseInt(che)) {
+                goodsService.updateCart(Integer.parseInt(number), usercart.get(i).getId());
+                return "redirect:/goods/cartAll";
             }
         }
-        goodsService.intcart(name, Integer.parseInt(number),n,Integer.parseInt(che),Integer.parseInt(uid));
+        goodsService.intcart(name, Integer.parseInt(number), n, Integer.parseInt(che), Integer.parseInt(uid));
         return "redirect:/goods/cartAll";
     }
+
     // 查询购物车全部商品
     @GetMapping(value = "cartAll")
-    public  String cartAll(HttpServletRequest request,HttpSession session){
+    public String cartAll(HttpServletRequest request, HttpSession session) {
         String uid = (String) session.getAttribute("uaccount");
         request.setAttribute("carts",
                 goodsService.getAllcart(Integer.parseInt(uid)));
@@ -123,20 +127,21 @@ public class GoodsController {
 
     //删除购物车，根据id删除购物车商品
     @GetMapping(value = "deleteCart")
-    public String deleteCart(HttpServletRequest request,String did){
+    public String deleteCart(HttpServletRequest request, String did) {
         goodsService.deleteCart(Integer.parseInt(did));
         return "redirect:/goods/cartAll";
     }
+
     //添加订单并调用删除购物车（即购买之后删除购物车商品）
     @GetMapping(value = "/paygoods")
-    public String paygoods(HttpServletRequest request,String[] goodid,String[] numaa,HttpSession session,String[] id){
+    public String paygoods(HttpServletRequest request, String[] goodid, String[] numaa, HttpSession session, String[] id) {
         String uid = (String) session.getAttribute("uaccount");
-        if (goodid.length == 0||numaa.length== 0||id.length == 0){
-            return  "redirect:/goods/cartAll";
-        }else {
+        if (goodid.length == 0 || numaa.length == 0 || id.length == 0) {
+            return "redirect:/goods/cartAll";
+        } else {
             for (int i = 0; i < goodid.length; i++) {
                 goodsService.insertOrder(
-                        goodsService.getOnegid(Integer.parseInt(goodid[i])).gname, Integer.parseInt(numaa[i]), Integer.parseInt(numaa[i])* goodsService.getOnegid(Integer.parseInt(goodid[i])).gprice, Integer.parseInt(uid));
+                        goodsService.getOnegid(Integer.parseInt(goodid[i])).gname, Integer.parseInt(numaa[i]), Integer.parseInt(numaa[i]) * goodsService.getOnegid(Integer.parseInt(goodid[i])).gprice, Integer.parseInt(uid));
                 goodsService.deleteCart
                         (goodsService.deleteCart(Integer.parseInt(id[i])));
             }
@@ -148,10 +153,10 @@ public class GoodsController {
 
     //根据用户查询登陆者的历史购买记录
     @GetMapping(value = "/getAllorder")
-    public String getAllorder(HttpServletRequest request,HttpSession session){
+    public String getAllorder(HttpServletRequest request, HttpSession session) {
         String uid = (String) session.getAttribute("uaccount");
-        request.setAttribute("order",goodsService.getAllorder(Integer.parseInt(uid)));
-        if (uid.equals(null)){
+        request.setAttribute("order", goodsService.getAllorder(Integer.parseInt(uid)));
+        if (uid.equals(null)) {
             return "redirect:http://localhost:8893/admin/tologin";
         }
         return "order";

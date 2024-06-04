@@ -4,12 +4,14 @@
 <mapper namespace="com.itheima.dao.UserDao">
 
     <insert id="register" parameterType="java.lang.String">
-        INSERT INTO USER(upassword,uname,usex) VALUES
-        (#{upassword},#{uname},#{usex})
+        INSERT INTO USER(upassword, uname, usex)
+        VALUES (#{upassword}, #{uname}, #{usex})
     </insert>
     <select id="login" resultType="com.itheima.b2b.commonmodule.model.User"
             parameterType="java.lang.String">
-        select * from user where uname=#{uname}
+        select *
+        from user
+        where uname = #{uname}
     </select>
 
 </mapper>

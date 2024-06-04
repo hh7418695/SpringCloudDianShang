@@ -16,6 +16,7 @@ public class Cart {
     private Integer price;
     private Integer goodid;
     private Integer uid;
+    private List<Goods> goodsList = new ArrayList<>();
 
     public Integer getUid() {
         return uid;
@@ -24,9 +25,6 @@ public class Cart {
     public void setUid(Integer uid) {
         this.uid = uid;
     }
-
-    private List<Goods> goodsList = new ArrayList<>();
-
 
     public Integer getGoodid() {
         return goodid;

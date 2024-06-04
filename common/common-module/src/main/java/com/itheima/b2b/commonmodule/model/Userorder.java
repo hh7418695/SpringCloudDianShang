@@ -7,8 +7,8 @@ package com.itheima.b2b.commonmodule.model;
  * @Created by CrazyStone
  */
 public class Userorder {
-    public int id,number,price;
-    public String goodsname,time;
+    public int id, number, price;
+    public String goodsname, time;
     private Integer uid;
 
     public Integer getUid() {
@@ -23,16 +23,16 @@ public class Userorder {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getTime() {
         return time;
     }
 
     public void setTime(String time) {
         this.time = time;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getNumber() {

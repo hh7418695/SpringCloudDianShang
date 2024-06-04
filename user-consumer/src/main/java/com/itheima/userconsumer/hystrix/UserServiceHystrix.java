@@ -2,7 +2,7 @@ package com.itheima.userconsumer.hystrix;
 
 
 import com.itheima.b2b.commonmodule.model.User;
-        import com.itheima.userconsumer.service.UserService;
+import com.itheima.userconsumer.service.UserService;
 import org.springframework.stereotype.Component;
 
 @Component

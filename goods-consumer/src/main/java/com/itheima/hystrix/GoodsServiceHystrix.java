@@ -3,33 +3,40 @@ package com.itheima.hystrix;
 /**
  * Created by itcast on 2019/10/31.
  */
+
 import com.itheima.b2b.commonmodule.model.Cart;
 import com.itheima.b2b.commonmodule.model.Goods;
 import com.itheima.b2b.commonmodule.model.Userorder;
 import com.itheima.service.GoodsService;
 import org.springframework.stereotype.Component;
+
 import java.util.List;
+
 @Component
 public class GoodsServiceHystrix implements GoodsService {
     @Override
     public List<Goods> getAllgoods() {
         return null;
     }
+
     @Override
     public List<Goods> getOnegoods(String gname) {
         return null;
     }
+
     @Override
     public Goods getOnegid(int gid) {
         return null;
     }
 
-    public int updateCart(int number,int id) {
+    public int updateCart(int number, int id) {
         return 0;
     }
-    public int intcart(String goodsname,int number,int price,int goodid,int uid){
+
+    public int intcart(String goodsname, int number, int price, int goodid, int uid) {
         return 0;
     }
+
     public List<Cart> getAllcart(int uid) {
         return null;
     }

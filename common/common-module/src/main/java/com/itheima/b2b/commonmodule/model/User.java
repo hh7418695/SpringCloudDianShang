@@ -7,7 +7,7 @@ package com.itheima.b2b.commonmodule.model;
  * @Created by CrazyStone
  */
 public class User {
-    private String uaccount,upassword,uname,usex;
+    private String uaccount, upassword, uname, usex;
 
     public String getUaccount() {
         return uaccount;

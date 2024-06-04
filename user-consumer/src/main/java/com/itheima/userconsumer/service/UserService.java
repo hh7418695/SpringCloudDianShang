@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 /**
  * @Classname LoginService
  * @Description TODO
@@ -14,11 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Created by CrazyStone
  */
 @Component
-@FeignClient(value = "b2b-user-provider",fallback = UserServiceHystrix.class)
+@FeignClient(value = "b2b-user-provider", fallback = UserServiceHystrix.class)
 public interface UserService {
-    @RequestMapping(value = "/login",method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public User login(@RequestParam(value = "uname") String uname);
 
-    @RequestMapping(value = "/register",method = RequestMethod.GET)
-    public  int register(@RequestParam(value = "upassword")String upassword, @RequestParam(value = "uname")String uname, @RequestParam(value = "usex") String usex);
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public int register(@RequestParam(value = "upassword") String upassword, @RequestParam(value = "uname") String uname, @RequestParam(value = "usex") String usex);
 }

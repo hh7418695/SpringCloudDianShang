@@ -12,8 +12,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableHystrix
 public class GoodsConsumerApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(GoodsConsumerApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(GoodsConsumerApplication.class, args);
+    }
 
 }

@@ -10,7 +10,7 @@ package com.itheima.b2b.commonmodule.model;
 public class Goods {
     public int gid, gprice;
     public String gname, gdetails;
-    private  Integer types;
+    private Integer types;
     private String gremain;
 
     public String getGremain() {

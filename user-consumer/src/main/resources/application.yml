@@ -15,5 +15,5 @@ thymeleaf:
   suffix: .html
   encoding: UTF-8
 feign:
-   hystrix:
-     enabled: true
+  hystrix:
+    enabled: true
