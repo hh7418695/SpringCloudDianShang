@@ -1,9 +1,5 @@
 package com.itheima.controller;
 
-/**
- * Created by itcast on 2019/10/31.
- */
-
 import com.itheima.b2b.commonmodule.model.User;
 import com.itheima.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
