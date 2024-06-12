@@ -18,4 +18,3 @@ zuul:
       path: /api-b/**
       serviceId: b2b-goods-consumer
       add-host-header: true
-
