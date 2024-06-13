@@ -86,7 +86,8 @@
             <div class="goods_detail_pic fl"><img th:src="${detail.gremain}"></div>
             <div class="goods_detail_list fr">
                 <input name="che" style="top: 1px;display: none" th:value="${detail.gid}" type="text">
-                <input class="deswaw" name="name" style="border:none;font-size:23px;color:#ff3e3e;" th:value="${detail.gname}"
+                <input class="deswaw" name="name" style="border:none;font-size:23px;color:#ff3e3e;"
+                       th:value="${detail.gname}"
                        type="text">
                 <!--<h3 th:text="${detail.gname}" id="name"></h3>-->
                 <p th:text="${detail.gdetails}"></p>
@@ -99,7 +100,8 @@
                 </div>
                 <div class="" style="margin-top: 35px">
                     <div class="num_name fl">数 量：</div>
-                    <input max="99" min="1" name="number" oninput="if(value>99)value=99" step="1" th:value="1" type="number"
+                    <input max="99" min="1" name="number" oninput="if(value>99)value=99" step="1" th:value="1"
+                           type="number"
                            value="1">
                 </div>
                 <!--<div class="goods_num clearfix">-->
@@ -114,7 +116,9 @@
                 <div class="total">总价：<em>16元</em></div>
                 <div class="operate_btn">
                     <div class="guest_cart fr">
-                        <input class="cart_name fl" style="height:35px;vertical-align:middle;text-align:left;background: #ff3e3e;color: whitesmoke;font-family: Microsoft Yahei" type="submit"
+                        <input class="cart_name fl"
+                               style="height:35px;vertical-align:middle;text-align:left;background: #ff3e3e;color: whitesmoke;font-family: Microsoft Yahei"
+                               type="submit"
                                value="加入购物车">
                     </div>
                 </div>

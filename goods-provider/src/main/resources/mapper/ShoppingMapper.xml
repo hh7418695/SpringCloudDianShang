@@ -11,6 +11,8 @@
         WHERE id = #{id};
     </update>
     <select id="getAllcart" resultType="com.itheima.b2b.commonmodule.model.Cart" parameterType="java.lang.Integer">
-        select * from cart WHERE uid = #{uid}
+        select *
+        from cart
+        WHERE uid = #{uid}
     </select>
 </mapper>
